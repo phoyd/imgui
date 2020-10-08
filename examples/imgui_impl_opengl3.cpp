@@ -134,13 +134,13 @@ using namespace gl;
 #endif
 
 // OpenGL Data
-static GLuint       g_GlVersion = 0;                // Extracted at runtime using GL_MAJOR_VERSION, GL_MINOR_VERSION queries (e.g. 320 for GL 3.2)
-static char         g_GlslVersionString[32] = "";   // Specified by user or detected based on compile time GL settings.
-static GLuint       g_FontTexture = 0;
-static GLuint       g_ShaderHandle = 0, g_VertHandle = 0, g_FragHandle = 0;
-static GLint        g_AttribLocationTex = 0, g_AttribLocationProjMtx = 0;                                // Uniforms location
-static GLuint       g_AttribLocationVtxPos = 0, g_AttribLocationVtxUV = 0, g_AttribLocationVtxColor = 0; // Vertex attributes location
-static unsigned int g_VboHandle = 0, g_ElementsHandle = 0;
+thread_local static GLuint       g_GlVersion = 0;                // Extracted at runtime using GL_MAJOR_VERSION, GL_MINOR_VERSION queries (e.g. 320 for GL 3.2)
+thread_local static char         g_GlslVersionString[32] = "";   // Specified by user or detected based on compile time GL settings.
+thread_local static GLuint       g_FontTexture = 0;
+thread_local static GLuint       g_ShaderHandle = 0, g_VertHandle = 0, g_FragHandle = 0;
+thread_local static GLint        g_AttribLocationTex = 0, g_AttribLocationProjMtx = 0;                                // Uniforms location
+thread_local static GLuint       g_AttribLocationVtxPos = 0, g_AttribLocationVtxUV = 0, g_AttribLocationVtxColor = 0; // Vertex attributes location
+thread_local static unsigned int g_VboHandle = 0, g_ElementsHandle = 0;
 
 // Functions
 bool    ImGui_ImplOpenGL3_Init(const char* glsl_version)

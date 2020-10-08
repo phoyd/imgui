@@ -65,18 +65,18 @@ enum GlfwClientApi
     GlfwClientApi_OpenGL,
     GlfwClientApi_Vulkan
 };
-static GLFWwindow*          g_Window = NULL;    // Main window
-static GlfwClientApi        g_ClientApi = GlfwClientApi_Unknown;
-static double               g_Time = 0.0;
-static bool                 g_MouseJustPressed[ImGuiMouseButton_COUNT] = {};
-static GLFWcursor*          g_MouseCursors[ImGuiMouseCursor_COUNT] = {};
-static bool                 g_InstalledCallbacks = false;
+thread_local static GLFWwindow*          g_Window = NULL;    // Main window
+thread_local static GlfwClientApi        g_ClientApi = GlfwClientApi_Unknown;
+thread_local static double               g_Time = 0.0;
+thread_local static bool                 g_MouseJustPressed[ImGuiMouseButton_COUNT] = {};
+thread_local static GLFWcursor*          g_MouseCursors[ImGuiMouseCursor_COUNT] = {};
+thread_local static bool                 g_InstalledCallbacks = false;
 
 // Chain GLFW callbacks: our callbacks will call the user's previously installed callbacks, if any.
-static GLFWmousebuttonfun   g_PrevUserCallbackMousebutton = NULL;
-static GLFWscrollfun        g_PrevUserCallbackScroll = NULL;
-static GLFWkeyfun           g_PrevUserCallbackKey = NULL;
-static GLFWcharfun          g_PrevUserCallbackChar = NULL;
+thread_local static GLFWmousebuttonfun   g_PrevUserCallbackMousebutton = NULL;
+thread_local static GLFWscrollfun        g_PrevUserCallbackScroll = NULL;
+thread_local static GLFWkeyfun           g_PrevUserCallbackKey = NULL;
+thread_local static GLFWcharfun          g_PrevUserCallbackChar = NULL;
 
 static const char* ImGui_ImplGlfw_GetClipboardText(void* user_data)
 {
